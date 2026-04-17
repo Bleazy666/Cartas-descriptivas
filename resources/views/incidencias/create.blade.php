@@ -26,15 +26,25 @@
                     <option value="{{ $tipo->id }}">
                         {{ $tipo->nombre}}
                     </option>
-                    <option value="Otro">Otro</option>
                     @endforeach
+                    <option value="otro">Otro</option>
                 </select>
             </div>
 
-            <div class="mb-3" id="otrocampo" style="display:none;">
-                <label for="">Tipo personalizado</label>
+            <div class="mb-3" id="otroCampo" style="display:none;">
+                <label>Tipo personalizado</label>
                 <input type="text" name="otro_tipo" class="form-control">
             </div>
+
+            <script>
+                document.querySelector('[name="tipo_incidencia_id"]').addEventListener('change', function() {
+                    if (this.value === 'otro') {
+                        document.getElementById('otroCampo').style.display = 'block';
+                    } else {
+                        document.getElementById('otroCampo').style.display = 'none';
+                    }
+                });
+            </script>
             
             <div class="mb-3">
                 <label for="">Fecha</label>
