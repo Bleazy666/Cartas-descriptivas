@@ -11,4 +11,4 @@ Route::get('/', function () {
 
 Route::resource('grupos', GrupoController::class);
 Route::resource('alumnos', AlumnoController::class);
-Route::resource('incidencias',IncidenciaController::class);
+Route::resource('incidencias',IncidenciaController::class)->except(['edit', 'update', 'destroy']);

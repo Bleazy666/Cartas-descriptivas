@@ -32,14 +32,6 @@
                 <td>{{ $incidencia->tipo->nombre}}</td>
                 <td>{{ $incidencia->descripcion}}</td>
                 <td>{{ $incidencia->fecha}}</td>
-                <th>
-                    <form action="{{ route('incidencias.destroy', $incidencia->id) }}" method="POST" style="display:inline-block">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="">
-                            Eliminar
-                        </button>
-                </th>
             </tr>
             @endforeach
         </tbody>
