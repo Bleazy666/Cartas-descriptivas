@@ -28,8 +28,24 @@ class TipoIncidenciaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if($request->tipo_incidencia_id === 'otro'){
+            $tipo = TipoIncidencia::create([
+                'nombre' => $request->otro_tipo
+            ]);
+        }else{
+            $tipo_id = $request->tipo_incidencia_id;
+        }
+
+        Incidencia::create([
+            'alumno_id' => $request->alumno_id,
+            'tipo_incidencia_id' => $tipo_id,
+            'fecha' => $request->fecha,
+            'descripcion' => $request->descripcion
+        ]);
+        return redirect()->back()->with('success', 'Incidencia Registrada');
     }
+
+
 
     /**
      * Display the specified resource.

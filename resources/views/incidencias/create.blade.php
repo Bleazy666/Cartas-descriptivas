@@ -26,30 +26,14 @@
                     <option value="{{ $tipo->id }}">
                         {{ $tipo->nombre}}
                     </option>
-                    <!--
-                    <option value="">
-                            Falta de respeto
-                        </option>
-                        <option value="">
-                            Agreción física
-                        </option>
-                        <option value="">
-                            Impunidad
-                        </option>
-                        <option value="">
-                            Dños materiales
-                        </option>
-                        <option value="">
-                            Indiciplina
-                        </option>
-                        <option value="">
-                            Otro
-                    </option>
-                    -->
-                    
-
+                    <option value="Otro">Otro</option>
                     @endforeach
                 </select>
+            </div>
+
+            <div class="mb-3" id="otrocampo" style="display:none;">
+                <label for="">Tipo personalizado</label>
+                <input type="text" name="otro_tipo" class="form-control">
             </div>
             
             <div class="mb-3">

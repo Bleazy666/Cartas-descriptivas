@@ -22,3 +22,11 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 });
+
+document.querySelector('[name="tipo_incidencia_id"]').addEventListener('change', function() {
+    if (this.value === 'otro') {
+        document.getElementById('otroCampo').style.display = 'block';
+    } else {
+        document.getElementById('otroCampo').style.display = 'none';
+    }
+});
