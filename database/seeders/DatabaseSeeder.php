@@ -16,13 +16,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        TipoIncidencia::create(['nombre' => 'Falta de respeto']);
-        TipoIncidencia::create(['nombre' => 'Falta de respeto']);
-        TipoIncidencia::create(['nombre' => 'Indisiplina']);
-        TipoIncidencia::create(['nombre' => 'Inpunidad']);
-        TipoIncidencia::create(['nombre' => 'Daños materiales']);
-        TipoIncidencia::create(['nombre' => 'Otros']);
-
+        $this->call([
+            TipoIncidenciaSeeder::class
+        ]);
 
         /* Modifiacar cuando el sistema cuente con login y registro de usuarios
         User::factory()->create([
