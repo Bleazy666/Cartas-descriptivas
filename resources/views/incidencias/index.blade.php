@@ -28,7 +28,7 @@
         <tbody>
             @foreach($incidencias as $incidencia)
             <tr>
-                <td>{{ $incidencia->alumno->nombre}}</td>
+                <td>{{ $incidencia->alumno->nombre}} {{ $incidencia->alumno->apellido }} </td>
                 <td>{{ $incidencia->tipo->nombre}}</td>
                 <td>{{ $incidencia->descripcion}}</td>
                 <td>{{ $incidencia->fecha}}</td>

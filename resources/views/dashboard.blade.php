@@ -12,8 +12,9 @@
         </div>
 
         <div>
-            <button class="btn btn-primary me-2">
-                <i class="bi bi-plus-lg"></i> Nueva Incidencia
+            <button class="btn btn-primary me-2 deco">
+                <i class="bi bi-plus-lg"></i>
+                <span><a href="{{ route('incidencias.create') }}" class="">Nueva Incidencia</a></span>
             </button>
 
             <button class="btn btn-outline-secondary">
