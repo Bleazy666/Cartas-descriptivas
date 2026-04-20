@@ -30,7 +30,7 @@
             <div class="card dashboard-card">
                 <div>
                     <p class="card-title">Grupos</p>
-                    <h3>0</h3>
+                    <h3>{{ $totalGrupos }}</h3>
                 </div>
                 <i class="bi bi-people card-icon"></i>
             </div>
@@ -40,7 +40,7 @@
             <div class="card dashboard-card">
                 <div>
                     <p class="card-title">Alumnos</p>
-                    <h3>0</h3>
+                    <h3>{{ $totalAlumnos }}</h3>
                 </div>
                 <i class="bi bi-person card-icon"></i>
             </div>
@@ -50,7 +50,7 @@
             <div class="card dashboard-card">
                 <div>
                     <p class="card-title">Incidencias</p>
-                    <h3>0</h3>
+                    <h3>{{ $totalIncidencias }}</h3>
                 </div>
                 <i class="bi bi-exclamation-triangle card-icon"></i>
             </div>
@@ -60,7 +60,28 @@
             <div class="card dashboard-card">
                 <div>
                     <p class="card-title">Este mes</p>
-                    <h3>0</h3>
+                    <canvas id="graficaIncidencias"></canvas>
+
+                    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+                        <script>
+                        const datos = @json($incidenciasMes);
+
+                        const labels = datos.map(d => d.dia);
+                        const valores = datos.map(d => d.total);
+
+                        new Chart(document.getElementById('graficaIncidencias'), {
+                            type: 'line',
+                            data: {
+                                labels: labels,
+                                datasets: [{
+                                    label: 'Incidencias del mes',
+                                    data: valores,
+                                    borderWidth: 2
+                                }]
+                            }
+                        }); 
+                    </script>
                 </div>
                 <i class="bi bi-graph-up card-icon"></i>
             </div>
@@ -74,14 +95,24 @@
         <div class="col-md-6">
             <div class="card p-4">
                 <h6 class="fw-bold">Incidencias Recientes</h6>
-                <p class="text-muted">No hay incidencias registradas.</p>
+                @foreach($recientes as $i)
+                    <p>
+                        {{ $i->alumno->nombre }} {{ $i->alumno->apellido }} - 
+                        {{ $i->tipo->nombre }} - 
+                        {{ $i->fecha }}
+                    </p>
+                @endforeach
             </div>
         </div>
 
         <div class="col-md-6">
             <div class="card p-4">
                 <h6 class="fw-bold">Alumnos con Más Incidencias</h6>
-                <p class="text-muted">No hay datos aún.</p>
+                @foreach($topAlumnos as $a)
+                    <p>
+                        {{ $a->alumno->nombre }} {{ $a->alumno->apellido }} ({{ $a->total }})
+                    </p>
+                @endforeach
             </div>
         </div>
 

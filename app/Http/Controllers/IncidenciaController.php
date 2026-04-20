@@ -50,9 +50,8 @@ class IncidenciaController extends Controller
             'descripcion'=> $request->descripcion,
             'fecha'=> $request->fecha
         ]);
-        
-        return redirect()->back()->with('success', 'Incidencia registrada');
         return redirect('/incidencias');
+        return redirect()->back()->with('success', 'Incidencia registrada');
     }
 
     /**
